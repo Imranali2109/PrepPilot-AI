@@ -4,15 +4,10 @@ const cors = require("cors")
 
 const app = express()
 
-app.use(cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
-    credentials: true
-}))
-
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     credentials: true
 }))
 
@@ -20,6 +15,13 @@ app.use(cors({
 const authRouter = require("./routes/auth.routes")
 const interviewRouter = require("./routes/interview.routes")
 
+
+app.get("/", (req, res) => {
+    res.status(200).json({
+        message: "PrepPilot AI backend is running.",
+        status: "ok"
+    })
+})
 
 /* using all the routes here */
 app.use("/api/auth", authRouter)
