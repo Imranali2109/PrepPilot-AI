@@ -21,7 +21,7 @@ PrepPilot AI is a full-stack MERN application that helps candidates prepare for 
 - React 19 + Vite
 - React Router
 - Axios
-- Sass
+- SCSS
 
 **Backend**
 - Node.js + Express 5
